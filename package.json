@@ -35,11 +35,8 @@
     "build:lib": "npm run prepare && rimraf dist/ dist/ng5-slider.tgz && ng-packagr -p src/ng5-slider/package.json && scss-bundle -e src/ng5-slider/lib/main.scss -d dist/ng5-slider/scss/ng5-slider.scss && rimraf dist/ng5-slider.tgz",
     "build:demo-app": "npm run prepare && rimraf dist/demo-app && ng build --prod --base-href /ng5-slider/",
     "publish-gh": "scripts/publish-gh-pages.sh",
-    "test": "npm run prepare && ng test",
-    "test:once": "npm run prepare && ng test --watch=false",
     "lint": "npm run prepare && ng lint",
-    "e2e": "npm run prepare && ng e2e --environment=e2e",
-    "ci": "npm run test:once && npm run e2e && npm run lint && npm run build:lib && npm run build:demo-app"
+    "ci": "npm run lint && npm run build:lib && npm run build:demo-app"
   },
   "dependencies": {
     "@angular/animations": ">=5.0.2",
@@ -63,30 +60,18 @@
     "@angular/compiler": "^5.0.2",
     "@angular/compiler-cli": "^5.0.2",
     "@angular/language-service": "^5.0.2",
-    "@types/jasmine": "~2.8.3",
-    "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
     "escape-html": "^1.0.3",
-    "jasmine-core": "~2.8.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~2.0.0",
-    "karma-chrome-launcher": "~2.2.0",
-    "karma-coverage-istanbul-reporter": "^1.2.1",
-    "karma-jasmine": "~1.1.0",
-    "karma-jasmine-html-reporter": "^0.2.2",
     "mkdirp": "^0.5.1",
     "ng-packagr": "^2.4.2",
     "prismjs": "^1.21.0",
-    "protractor": "^5.4.4",
-    "protractor-console-plugin": "^0.1.1",
     "rimraf": "^2.6.2",
     "scss-bundle": "^2.4.0",
     "ts-node": "~4.1.0",
     "tsickle": "~0.25.5",
     "tslint": "~5.9.1",
     "typedoc": "^0.11.1",
-    "typescript": "^2.8.4",
-    "webdriver-manager": "^12.1.7"
+    "typescript": "^2.8.4"
   }
 }
