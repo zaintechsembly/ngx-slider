@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
-import { Options } from '@local/ng5-slider';
+import { Options, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-push-range-slider',
-  templateUrl: './push-range-slider.component.html'
+  templateUrl: './push-range-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule
+  ]
 })
 export class PushRangeSliderComponent {
   minValue: number = 60;

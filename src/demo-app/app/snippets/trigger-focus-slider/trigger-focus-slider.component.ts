@@ -1,9 +1,17 @@
 import { Component, EventEmitter } from '@angular/core';
-import { Options, PointerType } from '@local/ng5-slider';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Options, PointerType, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-trigger-focus-slider',
-  templateUrl: './trigger-focus-slider.component.html'
+  templateUrl: './trigger-focus-slider.component.html',
+  standalone: true,
+  imports: [
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
+  ]
 })
 export class TriggerFocusSliderComponent {
   triggerFocus: EventEmitter<PointerType> = new EventEmitter<PointerType>();

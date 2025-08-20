@@ -1,0 +1,58 @@
+<h2 class="snippet-title">Slider with manual focus trigger</h2>
+<div class="snippet-card card">
+  <div class="card-body">
+    <div class="snippet-content">
+      <p>
+  <button type="button" class="btn btn-outline-primary" (click)="focusSlider(PointerType.Min)">Focus min pointer</button>
+  <button type="button" class="btn btn-outline-primary" (click)="focusSlider(PointerType.Max)">Focus max pointer</button>
+</p>
+
+<!-- <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" [triggerFocus]="triggerFocus"></ng5-slider> -->
+
+
+    </div>
+
+    <!-- <ngb-tabset class="snippet-code-tabset">
+      <ngb-tab title="trigger-focus-slider.component.ts"> -->
+      <ng-template ngbTabContent>
+        <pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{{ '{' }}</span> Component<span class="token punctuation">,</span> EventEmitter <span class="token punctuation">{{ '}' }}</span> <span class="token keyword">from</span> <span class="token string">'&#64;angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{{ '{' }}</span> Options<span class="token punctuation">,</span> PointerType <span class="token punctuation">{{ '}' }}</span> <span class="token keyword">from</span> <span class="token string">'ng5-slider'</span><span class="token punctuation">;</span>
+
+<span class="token decorator"><span class="token at operator">&#64;</span><span class="token function">Component</span></span><span class="token punctuation">(</span><span class="token punctuation">{{ '{' }}</span>
+  selector<span class="token operator">:</span> <span class="token string">'app-trigger-focus-slider'</span><span class="token punctuation">,</span>
+  templateUrl<span class="token operator">:</span> <span class="token string">'./trigger-focus-slider.component.html'</span>
+<span class="token punctuation">{{ '}' }}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">TriggerFocusSliderComponent</span> <span class="token punctuation">{{ '{' }}</span>
+  triggerFocus<span class="token operator">:</span> EventEmitter<span class="token operator">&lt;</span>PointerType<span class="token operator">></span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">EventEmitter<span class="token operator">&lt;</span>PointerType<span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  minValue<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+  maxValue<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">;</span>
+  options<span class="token operator">:</span> Options <span class="token operator">=</span> <span class="token punctuation">{{ '{' }}</span>
+    floor<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    ceil<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+    step<span class="token operator">:</span> <span class="token number">5</span>
+  <span class="token punctuation">{{ '}' }}</span><span class="token punctuation">;</span>
+
+  PointerType<span class="token operator">:</span> <span class="token builtin">any</span> <span class="token operator">=</span> PointerType<span class="token punctuation">;</span> <span class="token comment">// expose enum to the view</span>
+
+  <span class="token function">focusSlider</span><span class="token punctuation">(</span>pointerType<span class="token operator">:</span> PointerType<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{{ '{' }}</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>triggerFocus<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span>pointerType<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">{{ '}' }}</span>
+<span class="token punctuation">{{ '}' }}</span></code></pre>
+      </ng-template>
+    <!-- </ngb-tab>
+
+      <ngb-tab title="trigger-focus-slider.component.html"> -->
+      <ng-template ngbTabContent>
+        <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn btn-outline-primary<span class="token punctuation">"</span></span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>focusSlider(PointerType.Min)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Focus min pointer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn btn-outline-primary<span class="token punctuation">"</span></span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>focusSlider(PointerType.Max)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Focus max pointer<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng5-slider</span> <span class="token attr-name">[(value)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>minValue<span class="token punctuation">"</span></span> <span class="token attr-name">[(highValue)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>maxValue<span class="token punctuation">"</span></span> <span class="token attr-name">[options]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>options<span class="token punctuation">"</span></span> <span class="token attr-name">[triggerFocus]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>triggerFocus<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng5-slider</span><span class="token punctuation">></span></span></code></pre>
+      </ng-template>
+    <!-- </ngb-tab>
+
+      
+    </ngb-tabset> -->
+  </div>
+</div>

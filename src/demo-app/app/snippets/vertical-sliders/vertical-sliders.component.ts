@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Options } from '@local/ng5-slider';
+import { Options, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 interface SimpleSliderModel {
   value: number;
@@ -14,7 +15,12 @@ interface RangeSliderModel {
 
 @Component({
   selector: 'app-vertical-sliders',
-  templateUrl: './vertical-sliders.component.html'
+  templateUrl: './vertical-sliders.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule
+  ]
 })
 export class VerticalSlidersComponent {
   verticalSlider1: SimpleSliderModel = {

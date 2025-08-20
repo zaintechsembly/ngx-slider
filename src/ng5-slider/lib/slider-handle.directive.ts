@@ -2,7 +2,8 @@ import { Directive, ElementRef, Renderer2, HostBinding, ChangeDetectorRef } from
 import { SliderElementDirective } from './slider-element.directive';
 
 @Directive({
-  selector: '[ng5SliderHandle]'
+  selector: '[ng5SliderHandle]',
+  standalone: true
 })
 export class SliderHandleDirective extends SliderElementDirective {
   @HostBinding('class.ng5-slider-active')

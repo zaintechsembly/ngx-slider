@@ -1,12 +1,18 @@
+// main.ts
+import { bootstrapApplication } from '@angular/platform-browser';
 import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { provideRouter } from '@angular/router';
 
-import { AppModule } from './app/app.module';
+import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
+import { routerConfig } from './app/app-router.config'; // or rename to appRoutes
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch((err: any): void => console.log(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routerConfig)
+  ]
+}).catch(err => console.error(err));

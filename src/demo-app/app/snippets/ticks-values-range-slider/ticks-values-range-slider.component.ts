@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
-import { Options } from '@local/ng5-slider';
+import { Options, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-ticks-values-range-slider',
-  templateUrl: './ticks-values-range-slider.component.html'
+  templateUrl: './ticks-values-range-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule
+  ]
 })
 export class TicksValuesRangeSliderComponent {
   minValue: number = 1;

@@ -1,0 +1,81 @@
+<h2 class="snippet-title">User events slider
+</h2>
+<div class="snippet-card card">
+  <div class="card-body">
+    <div class="snippet-content">
+      <ng5-slider [(value)]="minValue"
+            [(highValue)]="maxValue"
+            [options]="options"
+            (userChangeStart)="onUserChangeStart($event)"
+            (userChange)="onUserChange($event)"
+            (userChangeEnd)="onUserChangeEnd($event)">
+</ng5-slider>
+
+Events:
+<textarea type="text" class="form-control" style="min-width: 100%; min-height: 300px;">
+{{logText}}
+</textarea>
+
+    </div>
+
+    <!-- <ngb-tabset class="snippet-code-tabset">
+      <ngb-tab title="user-events-slider.component.ts"> -->
+      <ng-template ngbTabContent>
+        <pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{{ '{' }}</span> Component <span class="token punctuation">{{ '}' }}</span> <span class="token keyword">from</span> <span class="token string">'&#64;angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{{ '{' }}</span> Options<span class="token punctuation">,</span> ChangeContext<span class="token punctuation">,</span> PointerType <span class="token punctuation">{{ '}' }}</span> <span class="token keyword">from</span> <span class="token string">'ng5-slider'</span><span class="token punctuation">;</span>
+
+<span class="token decorator"><span class="token at operator">&#64;</span><span class="token function">Component</span></span><span class="token punctuation">(</span><span class="token punctuation">{{ '{' }}</span>
+  selector<span class="token operator">:</span> <span class="token string">'app-user-events-slider'</span><span class="token punctuation">,</span>
+  templateUrl<span class="token operator">:</span> <span class="token string">'./user-events-slider.component.html'</span>
+<span class="token punctuation">{{ '}' }}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">UserEventsSliderComponent</span> <span class="token punctuation">{{ '{' }}</span>
+  minValue<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+  maxValue<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">;</span>
+  options<span class="token operator">:</span> Options <span class="token operator">=</span> <span class="token punctuation">{{ '{' }}</span>
+    floor<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    ceil<span class="token operator">:</span> <span class="token number">100</span>
+  <span class="token punctuation">{{ '}' }}</span><span class="token punctuation">;</span>
+  logText<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+
+  <span class="token function">onUserChangeStart</span><span class="token punctuation">(</span>changeContext<span class="token operator">:</span> ChangeContext<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{{ '{' }}</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>logText <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">onUserChangeStart(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${{ '{' }}</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getChangeContextString</span><span class="token punctuation">(</span>changeContext<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">{{ '}' }}</span></span><span class="token string">)\n</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">{{ '}' }}</span>
+
+  <span class="token function">onUserChange</span><span class="token punctuation">(</span>changeContext<span class="token operator">:</span> ChangeContext<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{{ '{' }}</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>logText <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">onUserChange(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${{ '{' }}</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getChangeContextString</span><span class="token punctuation">(</span>changeContext<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">{{ '}' }}</span></span><span class="token string">)\n</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">{{ '}' }}</span>
+
+  <span class="token function">onUserChangeEnd</span><span class="token punctuation">(</span>changeContext<span class="token operator">:</span> ChangeContext<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{{ '{' }}</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>logText <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">onUserChangeEnd(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${{ '{' }}</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getChangeContextString</span><span class="token punctuation">(</span>changeContext<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">{{ '}' }}</span></span><span class="token string">)\n</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">{{ '}' }}</span>
+
+  <span class="token function">getChangeContextString</span><span class="token punctuation">(</span>changeContext<span class="token operator">:</span> ChangeContext<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{{ '{' }}</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">{{ '{' }}pointerType: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${{ '{' }}</span>changeContext<span class="token punctuation">.</span>pointerType <span class="token operator">===</span> PointerType<span class="token punctuation">.</span>Min <span class="token operator">?</span> <span class="token string">'Min'</span> <span class="token operator">:</span> <span class="token string">'Max'</span><span class="token interpolation-punctuation punctuation">{{ '}' }}</span></span><span class="token string">, </span><span class="token template-punctuation string">`</span></span> <span class="token operator">+</span>
+           <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">value: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${{ '{' }}</span>changeContext<span class="token punctuation">.</span>value<span class="token interpolation-punctuation punctuation">{{ '}' }}</span></span><span class="token string">, </span><span class="token template-punctuation string">`</span></span> <span class="token operator">+</span>
+           <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">highValue: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${{ '{' }}</span>changeContext<span class="token punctuation">.</span>highValue<span class="token interpolation-punctuation punctuation">{{ '}' }}</span></span><span class="token string">{{ '}' }}</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">{{ '}' }}</span>
+<span class="token punctuation">{{ '}' }}</span></code></pre>
+      </ng-template>
+    <!-- </ngb-tab>
+
+      <ngb-tab title="user-events-slider.component.html"> -->
+      <ng-template ngbTabContent>
+        <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng5-slider</span> <span class="token attr-name">[(value)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>minValue<span class="token punctuation">"</span></span>
+            <span class="token attr-name">[(highValue)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>maxValue<span class="token punctuation">"</span></span>
+            <span class="token attr-name">[options]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>options<span class="token punctuation">"</span></span>
+            <span class="token attr-name">(userChangeStart)</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>onUserChangeStart($event)<span class="token punctuation">"</span></span>
+            <span class="token attr-name">(userChange)</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>onUserChange($event)<span class="token punctuation">"</span></span>
+            <span class="token attr-name">(userChangeEnd)</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>onUserChangeEnd($event)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng5-slider</span><span class="token punctuation">></span></span>
+
+Events:
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>textarea</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form-control<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">min-width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span> <span class="token property">min-height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
+{{ '{' }}{{ '{' }}logText{{ '}' }}{{ '}' }}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>textarea</span><span class="token punctuation">></span></span></code></pre>
+      </ng-template>
+    <!-- </ngb-tab>
+
+      
+    </ngb-tabset> -->
+  </div>
+</div>

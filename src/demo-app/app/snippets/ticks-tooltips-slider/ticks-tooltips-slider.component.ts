@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
-import { Options } from '@local/ng5-slider';
+import { Options, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-ticks-tooltips-slider',
-  templateUrl: './ticks-tooltips-slider.component.html'
+  templateUrl: './ticks-tooltips-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule
+  ]
 })
 export class TicksTooltipsSliderComponent {
   value: number = 5;

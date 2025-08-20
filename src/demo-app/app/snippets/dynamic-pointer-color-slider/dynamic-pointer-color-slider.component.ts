@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
-import { Options } from '@local/ng5-slider';
+import { Options, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-dynamic-pointer-color-slider',
-  templateUrl: './dynamic-pointer-color-slider.component.html'
+  templateUrl: 'dynamic-pointer-color-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule
+  ]
 })
 export class DynamicPointerColorSliderComponent {
   value: number = 12;

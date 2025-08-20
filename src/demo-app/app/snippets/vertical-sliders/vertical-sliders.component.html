@@ -1,0 +1,160 @@
+<h2 class="snippet-title">Vertical sliders</h2>
+<div class="snippet-card card">
+  <div class="card-body">
+    <div class="snippet-content">
+      <div class="container-fluid">
+  <div class="row" style="height: 300px">
+    <div class="col-2" style="height: 100%">
+      <ng5-slider [(value)]="verticalSlider1.value" [options]="verticalSlider1.options"></ng5-slider>
+    </div>
+
+    <div class="col-2" style="height: 100%">
+      <ng5-slider [(value)]="verticalSlider2.minValue" [(highValue)]="verticalSlider2.maxValue" [options]="verticalSlider2.options"></ng5-slider>
+    </div>
+
+    <div class="col-2" style="height: 100%">
+      <ng5-slider [(value)]="verticalSlider3.value" [options]="verticalSlider3.options"></ng5-slider>
+    </div>
+
+    <div class="col-2" style="height: 100%">
+      <ng5-slider [(value)]="verticalSlider4.minValue" [(highValue)]="verticalSlider4.maxValue" [options]="verticalSlider4.options"></ng5-slider>
+    </div>
+
+    <div class="col-2" style="height: 100%">
+      <ng5-slider [(value)]="verticalSlider5.value" [options]="verticalSlider5.options"></ng5-slider>
+    </div>
+
+    <div class="col-2" style="height: 100%">
+      <ng5-slider [(value)]="verticalSlider6.value" [options]="verticalSlider6.options"></ng5-slider>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+
+    <!-- <ngb-tabset class="snippet-code-tabset">
+      <ngb-tab title="vertical-sliders.component.ts"> -->
+      <ng-template ngbTabContent>
+        <pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{{ '{' }}</span> Component <span class="token punctuation">{{ '}' }}</span> <span class="token keyword">from</span> <span class="token string">'&#64;angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{{ '{' }}</span> Options <span class="token punctuation">{{ '}' }}</span> <span class="token keyword">from</span> <span class="token string">'ng5-slider'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">SimpleSliderModel</span> <span class="token punctuation">{{ '{' }}</span>
+  value<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+  options<span class="token operator">:</span> Options<span class="token punctuation">;</span>
+<span class="token punctuation">{{ '}' }}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">RangeSliderModel</span> <span class="token punctuation">{{ '{' }}</span>
+  minValue<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+  maxValue<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+  options<span class="token operator">:</span> Options<span class="token punctuation">;</span>
+<span class="token punctuation">{{ '}' }}</span>
+
+<span class="token decorator"><span class="token at operator">&#64;</span><span class="token function">Component</span></span><span class="token punctuation">(</span><span class="token punctuation">{{ '{' }}</span>
+  selector<span class="token operator">:</span> <span class="token string">'app-vertical-sliders'</span><span class="token punctuation">,</span>
+  templateUrl<span class="token operator">:</span> <span class="token string">'./vertical-sliders.component.html'</span>
+<span class="token punctuation">{{ '}' }}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">VerticalSlidersComponent</span> <span class="token punctuation">{{ '{' }}</span>
+  verticalSlider1<span class="token operator">:</span> SimpleSliderModel <span class="token operator">=</span> <span class="token punctuation">{{ '{' }}</span>
+    value<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    options<span class="token operator">:</span> <span class="token punctuation">{{ '{' }}</span>
+      floor<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      ceil<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+      vertical<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">{{ '}' }}</span>
+  <span class="token punctuation">{{ '}' }}</span><span class="token punctuation">;</span>
+
+  verticalSlider2<span class="token operator">:</span> RangeSliderModel <span class="token operator">=</span> <span class="token punctuation">{{ '{' }}</span>
+    minValue<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+    maxValue<span class="token operator">:</span> <span class="token number">80</span><span class="token punctuation">,</span>
+    options<span class="token operator">:</span> <span class="token punctuation">{{ '{' }}</span>
+      floor<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      ceil<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+      vertical<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">{{ '}' }}</span>
+  <span class="token punctuation">{{ '}' }}</span><span class="token punctuation">;</span>
+
+  verticalSlider3<span class="token operator">:</span> SimpleSliderModel <span class="token operator">=</span> <span class="token punctuation">{{ '{' }}</span>
+    value<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    options<span class="token operator">:</span> <span class="token punctuation">{{ '{' }}</span>
+      floor<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      ceil<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+      vertical<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      showTicks<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">{{ '}' }}</span>
+  <span class="token punctuation">{{ '}' }}</span><span class="token punctuation">;</span>
+
+  verticalSlider4<span class="token operator">:</span> RangeSliderModel <span class="token operator">=</span> <span class="token punctuation">{{ '{' }}</span>
+    minValue<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    maxValue<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    options<span class="token operator">:</span> <span class="token punctuation">{{ '{' }}</span>
+      floor<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      ceil<span class="token operator">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+      vertical<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      showTicksValues<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">{{ '}' }}</span>
+  <span class="token punctuation">{{ '}' }}</span><span class="token punctuation">;</span>
+
+  verticalSlider5<span class="token operator">:</span> SimpleSliderModel <span class="token operator">=</span> <span class="token punctuation">{{ '{' }}</span>
+    value<span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+    options<span class="token operator">:</span> <span class="token punctuation">{{ '{' }}</span>
+      floor<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      ceil<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+      vertical<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      showSelectionBar<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">{{ '}' }}</span>
+  <span class="token punctuation">{{ '}' }}</span><span class="token punctuation">;</span>
+
+  verticalSlider6<span class="token operator">:</span> SimpleSliderModel <span class="token operator">=</span> <span class="token punctuation">{{ '{' }}</span>
+    value<span class="token operator">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+    options<span class="token operator">:</span> <span class="token punctuation">{{ '{' }}</span>
+      floor<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      ceil<span class="token operator">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+      vertical<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      showSelectionBar<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      showTicksValues<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      ticksValuesTooltip<span class="token operator">:</span> <span class="token punctuation">(</span>v<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=></span> <span class="token punctuation">{{ '{' }}</span>
+        <span class="token keyword">return</span> <span class="token string">'Tooltip for '</span> <span class="token operator">+</span> v<span class="token punctuation">;</span>
+      <span class="token punctuation">{{ '}' }}</span>
+    <span class="token punctuation">{{ '}' }}</span>
+  <span class="token punctuation">{{ '}' }}</span><span class="token punctuation">;</span>
+<span class="token punctuation">{{ '}' }}</span></code></pre>
+      </ng-template>
+    <!-- </ngb-tab>
+
+      <ngb-tab title="vertical-sliders.component.html"> -->
+      <ng-template ngbTabContent>
+        <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container-fluid<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>row<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">height</span><span class="token punctuation">:</span> 300px</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col-2<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">height</span><span class="token punctuation">:</span> 100%</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng5-slider</span> <span class="token attr-name">[(value)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider1.value<span class="token punctuation">"</span></span> <span class="token attr-name">[options]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider1.options<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng5-slider</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col-2<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">height</span><span class="token punctuation">:</span> 100%</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng5-slider</span> <span class="token attr-name">[(value)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider2.minValue<span class="token punctuation">"</span></span> <span class="token attr-name">[(highValue)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider2.maxValue<span class="token punctuation">"</span></span> <span class="token attr-name">[options]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider2.options<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng5-slider</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col-2<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">height</span><span class="token punctuation">:</span> 100%</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng5-slider</span> <span class="token attr-name">[(value)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider3.value<span class="token punctuation">"</span></span> <span class="token attr-name">[options]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider3.options<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng5-slider</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col-2<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">height</span><span class="token punctuation">:</span> 100%</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng5-slider</span> <span class="token attr-name">[(value)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider4.minValue<span class="token punctuation">"</span></span> <span class="token attr-name">[(highValue)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider4.maxValue<span class="token punctuation">"</span></span> <span class="token attr-name">[options]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider4.options<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng5-slider</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col-2<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">height</span><span class="token punctuation">:</span> 100%</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng5-slider</span> <span class="token attr-name">[(value)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider5.value<span class="token punctuation">"</span></span> <span class="token attr-name">[options]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider5.options<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng5-slider</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>col-2<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">height</span><span class="token punctuation">:</span> 100%</span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng5-slider</span> <span class="token attr-name">[(value)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider6.value<span class="token punctuation">"</span></span> <span class="token attr-name">[options]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>verticalSlider6.options<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng5-slider</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+      </ng-template>
+    <!-- </ngb-tab>
+
+      
+    </ngb-tabset> -->
+  </div>
+</div>

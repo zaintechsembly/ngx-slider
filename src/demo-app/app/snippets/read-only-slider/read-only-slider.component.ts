@@ -1,9 +1,17 @@
 import { Component } from '@angular/core';
-import { Options } from '@local/ng5-slider';
+import { FormsModule } from '@angular/forms';
+import { Options, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-read-only-slider',
-  templateUrl: './read-only-slider.component.html'
+  templateUrl: './read-only-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule,
+    FormsModule
+  ]
 })
 export class ReadOnlySliderComponent {
   readOnly: boolean = true;

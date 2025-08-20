@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
-import { Options } from '@local/ng5-slider';
+import { Options, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-selection-bar-gradient-slider',
-  templateUrl: './selection-bar-gradient-slider.component.html'
+  templateUrl: './selection-bar-gradient-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule
+  ]
 })
 export class SelectionBarGradientSliderComponent {
   minValue: number = 0;

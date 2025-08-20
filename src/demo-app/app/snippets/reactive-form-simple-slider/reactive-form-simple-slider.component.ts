@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Options } from '@local/ng5-slider';
+import { Options, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form-simple-slider',
-  templateUrl: './reactive-form-simple-slider.component.html'
+  templateUrl: './reactive-form-simple-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule,
+    ReactiveFormsModule,
+    FormsModule
+  ]
 })
 export class ReactiveFormSimpleSliderComponent {
   sliderControl: FormControl = new FormControl(100);

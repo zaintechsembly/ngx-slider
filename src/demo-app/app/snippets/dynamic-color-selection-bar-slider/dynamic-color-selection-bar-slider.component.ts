@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
-import { Options } from '@local/ng5-slider';
+import { Options, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-dynamic-color-selection-bar-slider',
-  templateUrl: './dynamic-color-selection-bar-slider.component.html'
+  templateUrl: './dynamic-color-selection-bar-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule
+  ]
 })
 export class DynamicColorSelectionBarSliderComponent {
   value: number = 12;

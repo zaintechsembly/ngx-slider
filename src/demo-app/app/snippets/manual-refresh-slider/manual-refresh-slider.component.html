@@ -1,0 +1,74 @@
+<h2 class="snippet-title">Slider with manual refresh</h2>
+<div class="snippet-card card">
+  <div class="card-body">
+    <div class="snippet-content">
+      <p>
+    <input name="manual-refresh" type="checkbox" [(ngModel)]="manualRefreshEnabled"> <label class="pl-2" for="manual-refresh">Manual refresh enabled</label>
+</p>
+<p>
+  <button type="button" class="btn btn-outline-primary" (click)="toggleCollapsed()">Toggle slider visibility</button>
+</p>
+
+<div [ngbCollapse]="isCollapsed">
+  <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" [manualRefresh]="manualRefresh"></ng5-slider>
+</div>
+
+
+    </div>
+
+    <!-- <ngb-tabset class="snippet-code-tabset">
+      <ngb-tab title="manual-refresh-slider.component.ts"> -->
+      <ng-template ngbTabContent>
+        <pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{{ '{' }}</span> Component<span class="token punctuation">,</span> EventEmitter <span class="token punctuation">{{ '}' }}</span> <span class="token keyword">from</span> <span class="token string">'&#64;angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{{ '{' }}</span> Options <span class="token punctuation">{{ '}' }}</span> <span class="token keyword">from</span> <span class="token string">'ng5-slider'</span><span class="token punctuation">;</span>
+
+<span class="token decorator"><span class="token at operator">&#64;</span><span class="token function">Component</span></span><span class="token punctuation">(</span><span class="token punctuation">{{ '{' }}</span>
+  selector<span class="token operator">:</span> <span class="token string">'app-manual-refresh-slider'</span><span class="token punctuation">,</span>
+  templateUrl<span class="token operator">:</span> <span class="token string">'./manual-refresh-slider.component.html'</span>
+<span class="token punctuation">{{ '}' }}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">ManualRefreshSliderComponent</span> <span class="token punctuation">{{ '{' }}</span>
+  <span class="token comment">// 2019-06-11 UPDATE: The use-case in this example is now resolved on newest browser version which support ResizeObserver API</span>
+  <span class="token comment">// (https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) - at this time it is Chrome >= 64 and Opera >= 51.</span>
+  <span class="token comment">// For other browsers, or older browser versions, the workaround with manualRefresh still applies.</span>
+  manualRefreshEnabled<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  manualRefresh<span class="token operator">:</span> EventEmitter<span class="token operator">&lt;</span><span class="token keyword">void</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">EventEmitter<span class="token operator">&lt;</span><span class="token keyword">void</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  isCollapsed<span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  minValue<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+  maxValue<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">;</span>
+  options<span class="token operator">:</span> Options <span class="token operator">=</span> <span class="token punctuation">{{ '{' }}</span>
+    floor<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    ceil<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+    step<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    animate<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token comment">// animations don't play nicely with collapse</span>
+  <span class="token punctuation">{{ '}' }}</span><span class="token punctuation">;</span>
+
+  <span class="token function">toggleCollapsed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{{ '{' }}</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>isCollapsed <span class="token operator">=</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>isCollapsed<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>manualRefreshEnabled<span class="token punctuation">)</span> <span class="token punctuation">{{ '{' }}</span>
+      <span class="token comment">// Bootstrap uses display CSS property to effect the collapse, so we need this to manually trigger a refresh</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>manualRefresh<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">{{ '}' }}</span>
+  <span class="token punctuation">{{ '}' }}</span>
+<span class="token punctuation">{{ '}' }}</span></code></pre>
+      </ng-template>
+    <!-- </ngb-tab>
+
+      <ngb-tab title="manual-refresh-slider.component.html"> -->
+      <ng-template ngbTabContent>
+        <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>manual-refresh<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">[(ngModel)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>manualRefreshEnabled<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pl-2<span class="token punctuation">"</span></span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>manual-refresh<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Manual refresh enabled<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn btn-outline-primary<span class="token punctuation">"</span></span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>toggleCollapsed()<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Toggle slider visibility<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">[ngbCollapse]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>isCollapsed<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng5-slider</span> <span class="token attr-name">[(value)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>minValue<span class="token punctuation">"</span></span> <span class="token attr-name">[(highValue)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>maxValue<span class="token punctuation">"</span></span> <span class="token attr-name">[options]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>options<span class="token punctuation">"</span></span> <span class="token attr-name">[manualRefresh]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>manualRefresh<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng5-slider</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+      </ng-template>
+    <!-- </ngb-tab>
+
+      
+    </ngb-tabset> -->
+  </div>
+</div>

@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
-import { Options, ChangeContext, PointerType } from '@local/ng5-slider';
+import { Options, ChangeContext, PointerType, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-user-events-slider',
-  templateUrl: './user-events-slider.component.html'
+  templateUrl: './user-events-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule
+  ]
 })
 export class UserEventsSliderComponent {
   minValue: number = 20;

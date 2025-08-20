@@ -1,9 +1,17 @@
 import { Component, EventEmitter } from '@angular/core';
-import { Options } from '@local/ng5-slider';
+import { FormsModule } from '@angular/forms';
+import { Options, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-manual-refresh-slider',
-  templateUrl: './manual-refresh-slider.component.html'
+  templateUrl: './manual-refresh-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule,
+    FormsModule
+  ]
 })
 export class ManualRefreshSliderComponent {
   // 2019-06-11 UPDATE: The use-case in this example is now resolved on newest browser version which support ResizeObserver API

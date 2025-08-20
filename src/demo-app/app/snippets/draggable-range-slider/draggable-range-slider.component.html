@@ -1,0 +1,40 @@
+<h2 class="snippet-title">Slider with draggable range</h2>
+<div class="snippet-card card">
+  <div class="card-body">
+    <div class="snippet-content">
+      <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+
+    </div>
+
+    <!-- <ngb-tabset class="snippet-code-tabset">
+      <ngb-tab title="draggable-range-slider.component.ts"> -->
+      <ng-template ngbTabContent>
+        <pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{{ '{' }}</span> Component <span class="token punctuation">{{ '}' }}</span> <span class="token keyword">from</span> <span class="token string">'&#64;angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{{ '{' }}</span> Options <span class="token punctuation">{{ '}' }}</span> <span class="token keyword">from</span> <span class="token string">'ng5-slider'</span><span class="token punctuation">;</span>
+
+<span class="token decorator"><span class="token at operator">&#64;</span><span class="token function">Component</span></span><span class="token punctuation">(</span><span class="token punctuation">{{ '{' }}</span>
+  selector<span class="token operator">:</span> <span class="token string">'app-draggable-range-slider'</span><span class="token punctuation">,</span>
+  templateUrl<span class="token operator">:</span> <span class="token string">'./draggable-range-slider.component.html'</span>
+<span class="token punctuation">{{ '}' }}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">DraggableRangeSliderComponent</span> <span class="token punctuation">{{ '{' }}</span>
+  minValue<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  maxValue<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+  options<span class="token operator">:</span> Options <span class="token operator">=</span> <span class="token punctuation">{{ '{' }}</span>
+    floor<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    ceil<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+    draggableRange<span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">{{ '}' }}</span><span class="token punctuation">;</span>
+<span class="token punctuation">{{ '}' }}</span></code></pre>
+      </ng-template>
+    <!-- </ngb-tab>
+
+      <ngb-tab title="draggable-range-slider.component.html"> -->
+      <ng-template ngbTabContent>
+        <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng5-slider</span> <span class="token attr-name">[(value)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>minValue<span class="token punctuation">"</span></span> <span class="token attr-name">[(highValue)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>maxValue<span class="token punctuation">"</span></span> <span class="token attr-name">[options]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>options<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng5-slider</span><span class="token punctuation">></span></span></code></pre>
+      </ng-template>
+    <!-- </ngb-tab>
+
+      
+    </ngb-tabset> -->
+  </div>
+</div>

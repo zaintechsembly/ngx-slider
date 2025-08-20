@@ -1,0 +1,53 @@
+<h2 class="snippet-title">Slider with custom scale</h2>
+<div class="snippet-card card">
+  <div class="card-body">
+    <div class="snippet-content">
+      <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+
+    </div>
+
+    <!-- <ngb-tabset class="snippet-code-tabset">
+      <ngb-tab title="custom-scale-slider.component.ts"> -->
+      <ng-template ngbTabContent>
+        <pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{{ '{' }}</span> Component <span class="token punctuation">{{ '}' }}</span> <span class="token keyword">from</span> <span class="token string">'&#64;angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{{ '{' }}</span> Options <span class="token punctuation">{{ '}' }}</span> <span class="token keyword">from</span> <span class="token string">'ng5-slider'</span><span class="token punctuation">;</span>
+
+<span class="token decorator"><span class="token at operator">&#64;</span><span class="token function">Component</span></span><span class="token punctuation">(</span><span class="token punctuation">{{ '{' }}</span>
+  selector<span class="token operator">:</span> <span class="token string">'app-custom-scale-slider'</span><span class="token punctuation">,</span>
+  templateUrl<span class="token operator">:</span> <span class="token string">'./custom-scale-slider.component.html'</span>
+<span class="token punctuation">{{ '}' }}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">CustomScaleSliderComponent</span> <span class="token punctuation">{{ '{' }}</span>
+  value<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">;</span>
+  options<span class="token operator">:</span> Options <span class="token operator">=</span> <span class="token punctuation">{{ '{' }}</span>
+    floor<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    ceil<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+    step<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+    showTicksValues<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    customValueToPosition<span class="token operator">:</span> <span class="token punctuation">(</span>val<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> minVal<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> maxVal<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{{ '{' }}</span>
+      val <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      minVal <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>minVal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      maxVal <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>maxVal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> range<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> maxVal <span class="token operator">-</span> minVal<span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">(</span>val <span class="token operator">-</span> minVal<span class="token punctuation">)</span> <span class="token operator">/</span> range<span class="token punctuation">;</span>
+    <span class="token punctuation">{{ '}' }}</span><span class="token punctuation">,</span>
+    customPositionToValue<span class="token operator">:</span> <span class="token punctuation">(</span>percent<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> minVal<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> maxVal<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{{ '{' }}</span>
+      minVal <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>minVal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      maxVal <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>maxVal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> value<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> percent <span class="token operator">*</span> <span class="token punctuation">(</span>maxVal <span class="token operator">-</span> minVal<span class="token punctuation">)</span> <span class="token operator">+</span> minVal<span class="token punctuation">;</span>
+      <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">{{ '}' }}</span>
+  <span class="token punctuation">{{ '}' }}</span><span class="token punctuation">;</span>
+<span class="token punctuation">{{ '}' }}</span></code></pre>
+      </ng-template>
+    <!-- </ngb-tab>
+
+      <ngb-tab title="custom-scale-slider.component.html"> -->
+      <ng-template ngbTabContent>
+        <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ng5-slider</span> <span class="token attr-name">[(value)]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>value<span class="token punctuation">"</span></span> <span class="token attr-name">[options]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>options<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ng5-slider</span><span class="token punctuation">></span></span></code></pre>
+      </ng-template>
+    <!-- </ngb-tab>
+
+      
+    </ngb-tabset> -->
+  </div>
+</div>

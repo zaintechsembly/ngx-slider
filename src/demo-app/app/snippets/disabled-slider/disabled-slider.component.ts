@@ -1,9 +1,17 @@
 import { Component } from '@angular/core';
-import { Options } from '@local/ng5-slider';
+import { FormsModule } from '@angular/forms';
+import { Options, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-disabled-slider',
-  templateUrl: './disabled-slider.component.html'
+  templateUrl: './disabled-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule,
+    FormsModule
+  ]
 })
 export class DisabledSliderComponent {
   disabled: boolean = true;

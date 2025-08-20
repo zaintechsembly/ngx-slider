@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
-import { Options } from '@local/ng5-slider';
+import { Options, SliderComponent} from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-intermediate-ticks-values-range-slider',
-  templateUrl: './intermediate-ticks-values-range-slider.component.html'
+  templateUrl: './intermediate-ticks-values-range-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule
+  ]
 })
 export class IntermediateTicksValuesRangeSliderComponent {
   minValue: number = 15;

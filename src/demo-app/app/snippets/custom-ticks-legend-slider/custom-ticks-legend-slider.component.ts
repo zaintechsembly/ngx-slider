@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
-import { Options } from '@local/ng5-slider';
+import { Options, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-custom-ticks-legend-slider',
-  templateUrl: './custom-ticks-legend-slider.component.html'
+  templateUrl: './custom-ticks-legend-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule
+  ]
 })
 export class CustomTicksLegendSliderComponent {
   value: number = 5;

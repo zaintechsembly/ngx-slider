@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
-import { Options, LabelType, CustomStepDefinition } from '@local/ng5-slider';
+import { Options, LabelType, CustomStepDefinition, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-alphabet-slider',
-  templateUrl: './alphabet-slider.component.html'
+  templateUrl: './alphabet-slider.component.html',
+  standalone: true,
+  imports: [
+    SliderComponent, NgbModule
+  ]
 })
 export class AlphabetSliderComponent {
   alphabet: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';

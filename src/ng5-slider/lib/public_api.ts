@@ -1,0 +1,4 @@
+export { SliderComponent } from './slider.component';
+export * from './change-context';
+export * from './pointer-type';
+export * from './options';

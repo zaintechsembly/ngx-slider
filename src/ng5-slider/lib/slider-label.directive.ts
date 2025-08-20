@@ -3,12 +3,13 @@ import { SliderElementDirective } from './slider-element.directive';
 import { ValueHelper } from './value-helper';
 
 @Directive({
-  selector: '[ng5SliderLabel]'
+  selector: '[ng5SliderLabel]',
+  standalone: true
 })
 export class SliderLabelDirective extends SliderElementDirective {
-  private _value: string = null;
+  private _value: string | null = null;
   get value(): string {
-    return this._value;
+     return !this._value ? "" : this._value;
   }
 
   constructor(elemRef: ElementRef, renderer: Renderer2, changeDetectionRef: ChangeDetectorRef) {

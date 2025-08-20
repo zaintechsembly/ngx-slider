@@ -19,6 +19,7 @@ import {
   forwardRef,
   NgZone
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -44,6 +45,7 @@ import { EventListenerHelper } from './event-listener-helper';
 import { SliderElementDirective } from './slider-element.directive';
 import { SliderHandleDirective } from './slider-handle.directive';
 import { SliderLabelDirective } from './slider-label.directive';
+import { TooltipWrapperComponent } from './tooltip-wrapper.component';
 
 // Declaration for ResizeObserver a new API available in some of newest browsers:
 // https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver
@@ -128,7 +130,15 @@ const NG5_SLIDER_CONTROL_VALUE_ACCESSOR: any = {
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss'],
   host: { class: 'ng5-slider' },
-  providers: [NG5_SLIDER_CONTROL_VALUE_ACCESSOR]
+  providers: [NG5_SLIDER_CONTROL_VALUE_ACCESSOR],
+  standalone: true,
+  imports: [
+    CommonModule,
+    SliderElementDirective,
+    SliderHandleDirective,
+    SliderLabelDirective,
+    TooltipWrapperComponent
+  ]
 })
 export class SliderComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy, ControlValueAccessor {
   // Model for low value of slider. For simple slider, this is the only input. For range slider, this is the low value.

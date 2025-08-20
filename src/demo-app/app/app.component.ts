@@ -1,13 +1,25 @@
-import { Component, OnInit, OnDestroy, HostBinding } from '@angular/core';
-import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
+import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { HeaderComponent } from './header.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { ActivatedRoute, Router, NavigationEnd, Event as RouterEvent } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    HeaderComponent,
+    NgbModule,
+  ],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  private static REDIRECT_IDS: string[] = [
+  private static readonly REDIRECT_IDS: string[] = [
     'simple-slider',
     'range-slider',
     'styled-slider',
@@ -66,17 +78,21 @@ export class AppComponent implements OnInit, OnDestroy {
     });
 
     // Provide redirects for old site links
-    this.fragmentSub = this.route.fragment.subscribe((fragment: string) => {
-      if (this.route.snapshot.url.length === 0 && AppComponent.REDIRECT_IDS.indexOf(fragment) !== -1) {
+    this.fragmentSub = this.route.fragment.subscribe((fragment: string | null) => {
+      if (
+        fragment !== null &&
+        this.route.snapshot.url.length === 0 &&
+        AppComponent.REDIRECT_IDS.indexOf(fragment) !== -1
+      ) {
         this.router.navigateByUrl('/demos#' + fragment);
       }
     });
 
-    this.eventsSub = this.router.events.subscribe((event: Event) => {
+    this.eventsSub = this.router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationEnd) {
         const { fragment } = this.router.parseUrl(this.router.url);
         if (fragment !== undefined && fragment !== null) {
-          const element: Element = document.querySelector(`#${fragment}`);
+          const element: Element | null = document.querySelector(`#${fragment}`);
           if (element !== undefined && element !== null) {
             element.scrollIntoView();
           }

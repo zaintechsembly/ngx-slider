@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
-import { Options } from '@local/ng5-slider';
+import { Options, SliderComponent } from '@local/ng5-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-styled-slider',
   templateUrl: './styled-slider.component.html',
-  styleUrls: ['./styled-slider.component.scss']
+  styleUrls: ['./styled-slider.component.scss'],
+  standalone: true,
+  imports: [
+    SliderComponent,
+    NgbModule
+  ]
 })
 export class StyledSliderComponent {
   minValue: number = 10;

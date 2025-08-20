@@ -1,12 +1,6 @@
 {
   "exports": [
     {
-      "what": [
-        "Ng5SliderModule"
-      ],
-      "file": "./slider.module"
-    },
-    {
       "what": "*",
       "file": "./change-context"
     },

@@ -1,10 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Options, LabelType } from '@local/ng5-slider';
+import { RouterLink } from '@angular/router';
+import { Options, LabelType, SliderComponent } from '@local/ng5-slider';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  standalone: true,
+  imports: [
+    RouterLink,
+    CommonModule,
+    SliderComponent
+  ]
 })
 export class HomeComponent {
   simpleSliderValue: number = 50;
