@@ -27,9 +27,9 @@
     "rxjs": "^7.8.1"
   },
   "peerDependencies": {
-    "@angular/core": "^19.0.0",
-    "@angular/common": "^19.0.0",
-    "@angular/forms": "^19.0.0"
+    "@angular/core": "^19.2.0",
+    "@angular/common": "^19.2.0",
+    "@angular/forms": "^19.2.0"
   },
   "ngPackage": {
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
@@ -37,7 +37,7 @@
       "entryFile": "lib/public_api.ts"
     },
     "dest": "../../dist/ng5-slider",
-    "whitelistedNonPeerDependencies": [
+    "allowedNonPeerDependencies": [
       "detect-passive-events",
       "rxjs"
     ]

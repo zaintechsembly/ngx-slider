@@ -3,5 +3,9 @@
   "dest": "../../dist/ng5-slider",
   "lib": {
     "entryFile": "lib/public_api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": [
+    "detect-passive-events",
+    "rxjs"
+  ]
 }
