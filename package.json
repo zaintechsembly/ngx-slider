@@ -27,6 +27,7 @@
     "start": "ng serve --port 4202",
     "build": "npm run build:lib && npm run build:demo-app",
     "build:lib": "npx rimraf dist/ dist/ng5-slider.tgz && npx ng-packagr -p src/ng5-slider/ng-package.json && npm run build:scss && npx rimraf dist/ng5-slider.tgz",
+    "pack": "npm run build:lib && cd dist && cd ng5-slider && npm pack",
     "build:scss": "mkdir -p dist/ng5-slider/scss && cp src/ng5-slider/lib/*.scss dist/ng5-slider/scss/",
     "build:demo-app": "npx rimraf dist/demo-app && ng build demo-app --configuration=production --base-href /ng5-slider/",
     "publish-gh": "scripts/publish-gh-pages.sh",
