@@ -76,6 +76,19 @@
             }
           },
           "defaultConfiguration": "development"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/demo-app/**/*.ts",
+              "src/demo-app/**/*.html"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "**/dist/**"
+            ]
+          }
         }
       }
     },
@@ -89,6 +102,19 @@
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "project": "src/ng5-slider/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/ng5-slider/**/*.ts",
+              "src/ng5-slider/**/*.html"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "**/dist/**"
+            ]
           }
         }
       }
