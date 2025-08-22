@@ -1,2 +1,2 @@
-@import "slider.component.scss";
-@import "tooltip-wrapper.component.scss";
+@use "slider.component.scss" as *;
+@use "tooltip-wrapper.component.scss" as *;
