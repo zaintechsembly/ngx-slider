@@ -29,8 +29,6 @@
 #!.vscode/launch.json
 !.vscode/extensions.json
 
-# NVM
-.nvmrc
 
 # misc
 /.sass-cache
